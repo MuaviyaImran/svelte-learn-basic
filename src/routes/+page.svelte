@@ -8,7 +8,7 @@
 	}
 </script>
 
-<Header {name} />
+<Header {name} fake_name="asdas" />
 
 <p>The store is now {status}</p>
 
