@@ -1,6 +1,6 @@
 <script lang="ts">
 	let formState = $state({
-		answers: {},
+		answers: {} as Record<string, any>,
 		step: 0,
 		error: ''
 	});
