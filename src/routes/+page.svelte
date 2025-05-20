@@ -1,15 +1,9 @@
 <script lang="ts">
+	import Forms from './Forms.svelte';
 	import Header from './Header.svelte';
 	let name = $state('Scott');
-	let status: 'OPEN' | 'CLOSED' = $state('OPEN');
-
-	function onclick() {
-		status = status === 'OPEN' ? 'CLOSED' : 'OPEN';
-	}
 </script>
 
 <Header {name} fake_name="asdas" />
 
-<p>The store is now {status}</p>
-
-<button {onclick}>Toggle Status</button>
+<Forms />
