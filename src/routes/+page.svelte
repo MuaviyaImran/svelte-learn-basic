@@ -2,7 +2,8 @@
 	import Header from './Header.svelte';
 	let name = $state('Scott');
 	let status: 'OPEN' | 'CLOSED' = $state('OPEN');
-	function toggle() {
+
+	function onclick() {
 		status = status === 'OPEN' ? 'CLOSED' : 'OPEN';
 	}
 </script>
@@ -11,4 +12,4 @@
 
 <p>The store is now {status}</p>
 
-<button onclick={toggle}>Toggle Status</button>
+<button {onclick}>Toggle Status</button>
