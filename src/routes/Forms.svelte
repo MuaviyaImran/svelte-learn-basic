@@ -105,7 +105,9 @@
 		display: table;
 		width: 100%;
 		border: 1px solid #ccc;
-		margin: 20px 0;
+		margin: 20px auto;
 		padding: 15px;
+		width: 50%;
+		border-radius: 4px;
 	}
 </style>

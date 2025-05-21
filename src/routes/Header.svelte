@@ -24,9 +24,11 @@
 
 <div>
 	<p>Create State</p>
+	<p>Function Base State</p>
 	<button onclick={myState.up}>
 		{myState.value}
 	</button>
+	<p>Class Base State</p>
 	<button onclick={() => myStateTwo.up()}>
 		{myStateTwo.value}
 	</button>
