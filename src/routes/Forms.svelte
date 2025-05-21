@@ -29,9 +29,32 @@
 			formState.error = 'Please fill out the form field';
 		}
 	}
+	// will be called when the component is mounted
+	$effect(() => {
+		console.log('Mounting Form');
+		return () => {
+			// will be called when the component is unmounted
+			// before effect re runs
+			console.log('Unmounting Form');
+		};
+	});
+
+	$effect(() => {
+		// This effect will run whenever formState.step changes
+		console.log('Form State Changed', formState.step);
+		// DON'T create state based off other state, in effect
+		// use $derived() instead
+		return () => {
+			// Cleanup code if needed
+			console.log('before Form State Changed', formState.step);
+		};
+	});
+
+	// Its a good practice to use $inspect() to see the state of the store and debugging
+	$inspect(formState.step);
 </script>
 
-<main>
+<main class="table">
 	{#if formState.step === QUESTIONS.length}
 		<p class="success">Thank You...! Form submitted successfully!</p>
 	{:else}
@@ -70,5 +93,12 @@
 	}
 	.success {
 		color: green;
+	}
+	.table {
+		display: table;
+		width: 100%;
+		border: 1px solid #ccc;
+		margin: 20px 0;
+		padding: 15px;
 	}
 </style>
