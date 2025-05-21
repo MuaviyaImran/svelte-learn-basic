@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fade, fly } from 'svelte/transition';
+
 	let formState = $state({
 		answers: {} as Record<string, any>,
 		step: 0,
@@ -63,7 +65,12 @@
 
 	{#each QUESTIONS as { question, id, type }, index (id)}
 		{#if index === formState.step}
-			{@render formStep({ question, type, id })}
+			<div
+				in:fly={{ x: 200, duration: 200, opacity: 0, delay: 200 }}
+				out:fly={{ x: -200, duration: 200, opacity: 0 }}
+			>
+				{@render formStep({ question, type, id })}
+			</div>
 		{/if}
 	{/each}
 

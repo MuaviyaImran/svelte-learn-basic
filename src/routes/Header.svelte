@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { createState, ScottState } from './state.svelte';
 	let { name, fake_name }: { name: string; fake_name?: string } = $props();
 	let full_name = $derived(name + ' ' + 'Marsh');
 
@@ -7,6 +8,8 @@
 	function onclick() {
 		status = status === 'OPEN' ? 'CLOSED' : 'OPEN';
 	}
+	const myState = createState();
+	const myStateTwo = new ScottState();
 </script>
 
 <h1 class="">Hello {name}</h1>
@@ -18,3 +21,13 @@
 <p>The store is now {status}</p>
 
 <input type="text" bind:value={name} />
+
+<div>
+	<p>Create State</p>
+	<button onclick={myState.up}>
+		{myState.value}
+	</button>
+	<button onclick={() => myStateTwo.up()}>
+		{myStateTwo.value}
+	</button>
+</div>
